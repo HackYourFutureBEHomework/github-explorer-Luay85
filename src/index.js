@@ -20,7 +20,7 @@ async function onSelectRepo(e) {
   const name = e.target.value;
   SELECTED_REPO_INDEX = REPOS.findIndex(repo => repo.name === name);
   const repo = REPOS[SELECTED_REPO_INDEX];
-
+  // const repo = REPOS[e.target.selectedIndex];
   const res = await fetch(repo.contributors_url);
   const json = await res.json();
   CONTRIBUTORS = json;
@@ -52,7 +52,7 @@ function update() {
       html: repo.name
     });
   }
-
+  $select.selectedIndex = SELECTED_REPO_INDEX + 1;
   // Render repo details
   if (SELECTED_REPO_INDEX >= 0) {
     const repo = REPOS[SELECTED_REPO_INDEX];
