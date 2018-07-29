@@ -132,7 +132,6 @@ async function fetchRepos() {
   );
   const json = await res.json();
   REPOS = json;
-  // SELECTED_REPO_INDEX = 1;
   update();
 }
 
