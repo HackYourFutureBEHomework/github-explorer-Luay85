@@ -65,22 +65,23 @@ a:visited {
     background-color: white;
 }
 
-.main-div {
+.repo-details {
     display: flex;
     flex-direction: row;
     align-items: flex-start;
 }
 
 @media (max-width: 767px) {
-    .main-div {
-        margin: 10px;
+    .repo-details {
+        margin: 0;
         flex-direction: column;
-        /* align-items: flex-start; */
+        align-items: stretch;
     }
 }
 
 .repo-name,
 .contributor-div {
+    flex: 1;
     margin-bottom: 8px;
     border: none;
     border-radius: 2px;
@@ -88,23 +89,10 @@ a:visited {
     box-shadow: 0 1px 8px 0 rgba(0, 0, 0, .2), 0 3px 4px 0 rgba(0, 0, 0, .14), 0 3px 3px -2px rgba(0, 0, 0, .12);
 }
 
-.repo-details,
-.contributor-div {
-    width: 50%;
-}
-
-@media (max-width: 767px) {
-    .repo-details,
-    .contributor-div {
-        width: 100%;
-    }
-}
-
 .repo-name {
     padding: 16px;
     margin-right: 16px;
     margin-top: 0;
-    height: 156px;
 }
 
 @media (max-width: 767px) {
