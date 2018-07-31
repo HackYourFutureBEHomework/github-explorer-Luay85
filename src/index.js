@@ -69,9 +69,6 @@
           renderRepo(left, repo);
           renderContributors(right, repo);
         });
-        // const repo = data[0];
-        // renderRepo(left, repo);
-        // renderContributors(right, repo);
       })
       .catch(err => {
         const root = document.getElementById("root");
