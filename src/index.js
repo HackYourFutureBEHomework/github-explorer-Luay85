@@ -107,7 +107,7 @@
 
     createAndAppend("p", $repoList, {
       class: 'updated',
-      html: `<strong>Updated at:</strong> ${repo.updated_at.substring(10, 0)} at ${repo.updated_at.substring(11, 19)}`
+      html: `<strong>Updated on:</strong> ${repo.updated_at.substring(10, 0)} <strong>at</strong> ${repo.updated_at.substring(11, 19)}`
     });
   }
 
