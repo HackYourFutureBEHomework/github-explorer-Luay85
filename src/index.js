@@ -36,7 +36,7 @@
       .then(data => {
         const header = createAndAppend('header', root, {
           class: 'header',
-          html: 'HYF Repositories '
+          html: '<h3>HYF Repositories</h3>'
         });
         const repositorySelect = createAndAppend("select", header, {
           class: 'select',
