@@ -43,6 +43,7 @@
         });
         createAndAppend("option", repositorySelect, {
           class: "option",
+          disabled: '',
           html: "Click to select a repository"
         });
         data.sort((a, b) => a.name.localeCompare(b.name));
