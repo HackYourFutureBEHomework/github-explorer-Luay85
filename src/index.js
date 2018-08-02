@@ -90,7 +90,7 @@
     });
     createAndAppend("a", $repoList, {
       html: `<strong>Repository URL:</strong> ${repo.name}`,
-      href: repo.repoUrl,
+      href: repo.html_url,
       target: "_blank",
       class: "repo-link"
     });
