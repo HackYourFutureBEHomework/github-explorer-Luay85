@@ -27,39 +27,39 @@ h5 {
 
 a {
     text-decoration: none;
-    color: rgb(0, 0, 0, 87%);
-}
-
-a:hover {
-    color: #3F51B5;
+    color: #FC5C5D;
+    text-transform: capitalize;
 }
 
 a:visited {
-    color: green;
+    color: #FB2A2B;
 }
 
 .header {
     color: white;
-    background-color: #3F51B5;
-    padding: 17px 20px 16px 0px;
+    background-color: #FC5C5D;
+    padding: 5px 5px 5px 0px;
     margin-bottom: 16px;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    border-radius: 2px;
+    margin-top: -1px;
 }
 
 @media (max-width: 767px) {
     .header {
-        padding: 0px 14px 16px 0px;
         flex-direction: column;
+        padding-bottom: 16px;
+        margin-top: -10px;
     }
 }
 
 .select {
     margin-left: 16px;
     font-size: 14px;
-    width: 270px;
+    width: 333px;
     height: 32px;
     padding: 2px;
     overflow: hidden;
@@ -131,6 +131,15 @@ a:visited {
     flex-direction: row;
     align-items: center;
     cursor: pointer;
+}
+
+.contributor-item:hover {
+    background-color: #1C1D21;
+    transition: 0.2s;
+}
+
+.contributor-item a:hover {
+    color: white;
 }
 
 .contributor-avatar {

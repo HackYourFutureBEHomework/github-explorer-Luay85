@@ -1,6 +1,7 @@
-"use strict"; {
+"use strict";
+{
   function fetchJSON(url) {
-    return new Promise(function (resolve, reject) {
+    return new Promise(function(resolve, reject) {
       const xhr = new XMLHttpRequest();
       xhr.open("GET", url);
       xhr.responseType = "json";
@@ -34,32 +35,32 @@
     const root = document.getElementById("root");
     fetchJSON(url)
       .then(data => {
-        const header = createAndAppend('header', root, {
-          class: 'header',
-          html: '<h3>HYF Repositories</h3>'
+        const header = createAndAppend("header", root, {
+          class: "header",
+          html: "<h3>HYF Repositories</h3>"
         });
         const repositorySelect = createAndAppend("select", header, {
-          class: 'select',
+          class: "select"
         });
         createAndAppend("option", repositorySelect, {
-          class: 'option',
-          html: 'Click to select a repository'
+          class: "option",
+          html: "Click to select a repository"
         });
-        data.sort((a, b) => (a.name).localeCompare(b.name));
+        data.sort((a, b) => a.name.localeCompare(b.name));
         data.forEach(repo => {
           createAndAppend("option", repositorySelect, {
-            class: 'option',
+            class: "option",
             html: repo.name
           });
         });
         const mainDiv = createAndAppend("div", root, {
-          class: 'main-div'
+          class: "main-div"
         });
         const left = createAndAppend("div", mainDiv, {
-          class: 'repo-details'
+          class: "repo-details"
         });
         const right = createAndAppend("div", mainDiv, {
-          class: 'contributor-div'
+          class: "contributor-div"
         });
 
         repositorySelect.addEventListener("change", () => {
@@ -82,32 +83,37 @@
 
   function renderRepo(parent, repo) {
     const $repoName = createAndAppend("ul", parent, {
-      class: 'repo-name',
+      class: "repo-name"
     });
     const $repoList = createAndAppend("li", $repoName, {
-      class: 'repo-list'
+      class: "repo-list"
     });
     createAndAppend("a", $repoList, {
       html: `<strong>Repository URL:</strong> ${repo.name}`,
       href: repo.repoUrl,
       target: "_blank",
-      class: 'repo-link'
+      class: "repo-link"
     });
     const $repoDescription = createAndAppend("p", $repoList, {
-      class: 'description'
+      class: "description"
     });
 
     if (repo.description !== null) {
-      $repoDescription.innerHTML = `<strong>Description:</strong> ${repo.description}`;
+      $repoDescription.innerHTML = `<strong>Description:</strong> ${
+        repo.description
+      }`;
     }
     createAndAppend("p", $repoList, {
-      class: 'forked',
+      class: "forked",
       html: `<strong>Forked:</strong> ${repo.forks_count}`
     });
 
     createAndAppend("p", $repoList, {
-      class: 'updated',
-      html: `<strong>Updated on:</strong> ${repo.updated_at.substring(10, 0)} <strong>at</strong> ${repo.updated_at.substring(11, 19)}`
+      class: "updated",
+      html: `<strong>Updated on:</strong> ${repo.updated_at.substring(
+        10,
+        0
+      )} <strong>at</strong> ${repo.updated_at.substring(11, 19)}`
     });
   }
 
@@ -116,25 +122,25 @@
     fetchJSON(url)
       .then(contributors => {
         const $contributorsList = createAndAppend("ul", parent, {
-          class: 'contributor-list',
-          html: '<h5>Contributions</h5>'
+          class: "contributor-list",
+          html: "<h5>Contributions</h5>"
         });
         contributors.forEach(contributor => {
           const $contributorItem = createAndAppend("li", $contributorsList, {
-            class: 'contributor-item'
+            class: "contributor-item"
           });
-          createAndAppend('img', $contributorItem, {
-            class: 'contributor-avatar',
+          createAndAppend("img", $contributorItem, {
+            class: "contributor-avatar",
             src: contributor.avatar_url
           });
-          createAndAppend('a', $contributorItem, {
-            html: contributor.login,
+          createAndAppend("a", $contributorItem, {
+            html: `<h3>${contributor.login}</h3>`,
             class: "contributor-login",
             href: contributor.html_url,
             target: "_blank"
           });
-          createAndAppend('h5', $contributorItem, {
-            class: 'contribution',
+          createAndAppend("h5", $contributorItem, {
+            class: "contribution",
             html: contributor.contributions
           });
         });
@@ -147,7 +153,7 @@
       });
   }
   const HYF_REPOS_URL =
-    "https://api.github.com/orgs/HackYourFuture/repos?per_page=100";
+    "https://api.github.com/orgs/HackYourFutureBelgium/repos?per_page=100";
 
   window.onload = () => main(HYF_REPOS_URL);
 }
