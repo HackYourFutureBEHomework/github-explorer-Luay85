@@ -1,7 +1,6 @@
-"use strict";
-{
+"use strict"; {
   function fetchJSON(url) {
-    return new Promise(function(resolve, reject) {
+    return new Promise(function (resolve, reject) {
       const xhr = new XMLHttpRequest();
       xhr.open("GET", url);
       xhr.responseType = "json";
@@ -134,7 +133,7 @@
             src: contributor.avatar_url
           });
           createAndAppend("a", $contributorItem, {
-            html: `<h3>${contributor.login}</h3>`,
+            html: `<h4>${contributor.login}</h4>`,
             class: "contributor-login",
             href: contributor.html_url,
             target: "_blank"
